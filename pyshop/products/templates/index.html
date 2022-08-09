@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="py-3" style="overflow-x: hidden">
+        <h1 class="text-center">Products</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center">
+        {% for product in products %}
+          <div class="col d-flex justify-content-center align-items-center"
+               style="max-width: 400px; height: 500px">
+            <div class="card w-100 h-100 d-flex justify-content-center">
+              <img src={{product.image_url}} style="width: 100%; height: 200px"
+                   class="card-img-top img-fluid" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">Price: ${{product.price}}</p>
+              </div>
+              <div class="card-footer">
+                <button class="btn">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+    </main>
+{% endblock %}
